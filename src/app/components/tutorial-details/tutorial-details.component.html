@@ -1,0 +1,66 @@
+<div>
+  <div *ngIf="currentTutorial.id" class="edit-form">
+    <h4>Supprimer ou Modifier ?</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Produit</label>
+        <input
+          type="text"
+          class="form-control mt-2"
+          id="title"
+          [(ngModel)]="currentTutorial.title"
+          name="title"
+        />
+      </div>
+      <!-- <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentTutorial.description"
+          name="description"
+        />
+      </div> -->
+
+      <div class="form-group text-white"> 
+        <!-- garder cette div vide car sinon la page edit ne s'afficheras pas  -->
+        <!-- {{ currentTutorial.published ? "Published" : "Pending" }} -->
+      </div>
+    </form> 
+
+    <!-- <button
+      class="badge badge-primary mr-2"
+      *ngIf="currentTutorial.published"
+      (click)="updatePublished(false)"
+    >
+      UnPublish
+    </button>
+    <button
+      *ngIf="!currentTutorial.published"
+      class="badge badge-primary mr-2"
+      (click)="updatePublished(true)"
+    >
+      Publish
+    </button> -->
+
+    <button type="button" class="btn btn-outline-danger" (click)="deleteTutorial()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      type="button" 
+      class="btn btn-outline-success ml-4"
+      (click)="updateTutorial()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentTutorial.id">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>
+</div>
